@@ -1,0 +1,31 @@
+{
+  "name": "SkyRewrite",
+  "description": "Tune SkyRewrite journal, Local Echo, bounty, and guard response behavior. Numeric settings show their limits and accept typed values within those limits.",
+  "icon": "✦",
+  "accent": "#69d6df",
+  "requiredCore": "SkyOS.dll",
+  "appPlugin": "SkyRewrite.dll",
+  "showInSkyApps": false,
+  "settings": [
+    { "id": "openHotkey", "group": "Keyboard shortcuts", "label": "Open SkyRewrite", "type": "hotkey", "default": "", "description": "Open the SkyRewrite dashboard." },
+    { "id": "historyRefreshInterval", "group": "Journal & display", "label": "Live history update delay", "type": "number", "min": 250, "max": 30000, "step": 1, "default": 3000, "unit": "ms", "description": "Wait this long after the latest recorded action, then refresh the visible history once." },
+    { "id": "showLocationSummary", "group": "Journal & display", "label": "Show observed activity by location", "type": "boolean", "default": true, "description": "Show or hide the activity summary on the overview." },
+    { "id": "showInventoryEvents", "group": "Journal & display", "label": "Include inventory transfers in history", "type": "boolean", "default": true, "description": "Show item movement events in the journal." },
+    { "id": "journalRetentionEvents", "group": "Journal & display", "label": "Journal retention", "type": "number", "min": 512, "max": 2048, "step": 256, "default": 2048, "description": "Older rows are pruned first; saved lifetime totals remain." },
+    { "id": "localEchoEnabled", "group": "Local Echo", "label": "Enable Local Echo on revisit", "type": "boolean", "default": false, "description": "Record an Echo when recent weighted activity reaches its threshold." },
+    { "id": "localEchoKillThreshold", "group": "Local Echo", "label": "Local Echo pressure threshold", "type": "number", "min": 1, "max": 20, "step": 1, "default": 3, "description": "Recent activity needed to record an Echo." },
+    { "id": "localEchoLookbackDays", "group": "Local Echo", "label": "Local Echo lookback", "type": "number", "min": 0.5, "max": 60, "step": 0.5, "default": 7, "description": "How far back recent activity contributes to pressure, in-game days." },
+    { "id": "localEchoCooldownDays", "group": "Local Echo", "label": "Local Echo cooldown", "type": "number", "min": 0.5, "max": 60, "step": 0.5, "default": 7, "description": "Minimum time before the same location can record another Echo, in-game days." },
+    { "id": "localEchoShowNotification", "group": "Local Echo", "label": "Show an in-game Echo notice", "type": "boolean", "default": true, "description": "Show a short HUD message when an Echo is recorded." },
+    { "id": "adaptiveGuardResponse", "group": "Hold response", "label": "Adaptive guard confidence response", "type": "boolean", "default": false, "description": "Eligible guards become one confidence step braver for one in-game day after repeated hostile losses." },
+    { "id": "localEchoTemporaryBounty", "group": "Hold response", "label": "Add a temporary hold bounty on Echo", "type": "boolean", "default": false, "description": "Add a temporary nonviolent bounty when an eligible Echo fires." },
+    { "id": "echoBountyVictimMode", "group": "Hold response", "label": "Echo bounty eligible victim type", "type": "select", "default": "nonhostile", "options": [{ "value": "nonhostile", "label": "Non-hostile victims" }, { "value": "hostile", "label": "Hostile victims" }, { "value": "both", "label": "Both" }], "description": "Choose which saved victim context qualifies an Echo bounty." },
+    { "id": "localEchoTemporaryBountyAmount", "group": "Hold response", "label": "Temporary hold bounty amount", "type": "number", "min": 5, "max": 100, "step": 5, "default": 25, "description": "Nonviolent bounty added by an Echo, in septims." },
+    { "id": "localEchoTemporaryBountyDays", "group": "Hold response", "label": "Temporary hold bounty duration", "type": "number", "min": 0.5, "max": 7, "step": 0.5, "default": 1, "description": "How long the Echo bounty remains before a safe expiry attempt, in-game days." },
+    { "id": "localEchoTemporaryBountyScaleWithPressure", "group": "Hold response", "label": "Scale bounty with local pressure", "type": "boolean", "default": false, "description": "Scale the configured amount by pressure, rounded to 5 septims and capped at 100." },
+    { "id": "theftBountyEnabled", "group": "Hold response", "label": "Add a bounty after repeated thefts", "type": "boolean", "default": false, "description": "Let repeated thefts at one location trigger a nonviolent hold bounty." },
+    { "id": "theftBountyAmount", "group": "Hold response", "label": "Theft bounty amount", "type": "number", "min": 5, "max": 100, "step": 5, "default": 25, "description": "Amount attempted after the theft threshold is reached, in septims." },
+    { "id": "theftBountyThreshold", "group": "Hold response", "label": "Theft events before bounty", "type": "number", "min": 1, "max": 100, "step": 1, "default": 3, "description": "Theft events in one location and lookback window required for a bounty attempt." },
+    { "id": "dispatchGuardOnBounty", "group": "Hold response", "label": "Dispatch a matching hold guard", "type": "boolean", "default": true, "description": "Ask SkyRewrite to dispatch a guard when it applies a hold bounty." }
+  ]
+}

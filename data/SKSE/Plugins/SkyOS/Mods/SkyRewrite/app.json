@@ -1,0 +1,8 @@
+{
+  "name": "SkyRewrite",
+  "plugin": "SkyRewrite.dll",
+  "requiredCore": "SkyOS.dll",
+  "documents": "Data/SKSE/Plugins/SkyOS/Mods/SkyRewrite/SkyDocuments",
+  "settingsStorage": "SkyRewrite dashboard localStorage key: skyrewrite-settings-v1",
+  "dataStorage": "SkyRewrite's event journal and reversible-action records are serialized into the active save's SKSE co-save."
+}
